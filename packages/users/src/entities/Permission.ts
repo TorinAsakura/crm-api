@@ -16,7 +16,7 @@ export class Permission extends AggregateRoot {
   possession: string = 'any'
 
   @Column('simple-array')
-  attributes: string[] = []
+  attributes: string[] = ['*']
 
   @CreateDateColumn()
   createdAt: Date

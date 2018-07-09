@@ -1,7 +1,40 @@
+enum UserStatus {
+  ACTIVE
+  DISABLED
+}
+
+type Permission {
+  id: ID!
+  resource: String!
+  action: String!
+  possession: String!
+  attributes: [String]!
+}
+
+type Role {
+  id: ID!
+  name: String!
+  permissions: [Permission]!
+}
+
 type User {
   id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  status: UserStatus!
+  role: Role!
+  permissions: [Permission]!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type UsersList {
+  rows: [User]!
+  count: Int!
 }
 
 type Query {
   me : User!
+  users: UsersList!
 }

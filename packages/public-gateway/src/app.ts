@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express'
 import { GraphQLModule, GraphQLFactory } from '@nestjs/graphql'
 import { UsersModule } from '@bloom/users'
-import { AuthModule } from '@bloom/auth'
+import { AuthModule, AuthMiddleware } from '@bloom/auth'
 
 @Module({
   imports: [
@@ -44,6 +44,8 @@ export class ApplicationModule implements NestModule {
     consumer
       .apply(graphiqlExpress({ endpointURL: '/' }))
         .forRoutes('/graphiql')
+      .apply(AuthMiddleware)
+        .forRoutes('/')
       .apply(graphqlExpress((request) => ({ schema, rootValue: request })))
         .forRoutes('/')
   }

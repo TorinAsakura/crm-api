@@ -1,7 +1,0 @@
-type Role {
-  id : ID!
-}
-
-type Query {
-  roles : [Role]!
-}

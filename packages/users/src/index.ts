@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { JwtModule } from '@nestjs/jwt'
-import { UserResolver } from './resolvers/UserResolver'
+import { Resolvers } from './resolvers'
 
 export * from './entities'
 
@@ -11,7 +11,7 @@ export * from './entities'
     }),
   ],
   providers: [
-    UserResolver,
+    ...Resolvers,
   ],
 })
 export class UsersModule {}

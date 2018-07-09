@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common'
 import { JwtModule } from '@nestjs/jwt'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { User } from '@bloom/users'
+import { User, Role, Permission } from '@bloom/users'
 import { Resolvers } from './resolvers'
 import { Services } from './services'
+
+export * from './middlewares/AuthMiddleware'
 
 @Module({
   imports: [
@@ -15,11 +17,16 @@ import { Services } from './services'
     }),
     TypeOrmModule.forFeature([
       User,
+      Role,
+      Permission,
     ]),
   ],
   providers: [
     ...Services,
     ...Resolvers,
+  ],
+  exports: [
+    ...Services,
   ],
 })
 export class AuthModule {}

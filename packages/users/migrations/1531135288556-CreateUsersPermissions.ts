@@ -6,21 +6,25 @@ export class CreateUsersPermissions1531135288556 implements MigrationInterface {
     await queryRunner.manager.insert(Permission, { 
       resource: 'users', 
       action: 'create',
+      attributes: ['*'],
     })
 
     await queryRunner.manager.insert(Permission, { 
       resource: 'users', 
       action: 'read',
+      attributes: ['*'],
     })
 
     await queryRunner.manager.insert(Permission, { 
       resource: 'users', 
       action: 'update',
+      attributes: ['*'],
     })
 
     await queryRunner.manager.insert(Permission, { 
       resource: 'users', 
       action: 'delete',
+      attributes: ['*'],
     })
   }
 
