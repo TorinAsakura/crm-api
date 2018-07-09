@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "pretty": true,
+    "module": "commonjs",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": true,
+    "allowJs": true,
+    "lib": [
+      "es6",
+      "esnext"
+    ],
+    "baseUrl": "./packages",
+    "paths": {
+      "@c3/*": ["./*/src"]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "@bloom/auth",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "typecheck": "tsc",
+    "lint": "tslint --project tsconfig.json -c tslint.json -t codeFrame src/**/*.ts{,x}"
+  },
+  "dependencies": {
+    "@nestjs/common": "^5.0.0",
+    "@nestjs/core": "^5.0.0",
+    "@nestjs/graphql": "^3.0.0",
+    "@nestjs/jwt": "^0.0.1",
+    "@nestjs/typeorm": "^5.0.2",
+    "bcryptjs": "^2.4.3",
+    "typeorm": "^0.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "^10.0.8",
+    "nodemon": "^1.17.2",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2"
+  }
+}

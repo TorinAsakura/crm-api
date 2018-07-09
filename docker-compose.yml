@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  ide:
+    image: monstrs/cloud9
+    volumes:
+      - ./:/workspace
+    ports:
+      - "7100:80"
+
+  yarn:
+    image: node
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    entrypoint: yarn
+
+  db:
+    image: postgres:10
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=bloom
+
+  public-gateway:
+    image: node
+    working_dir: /workspace/packages/public-gateway
+    volumes:
+      - ./:/workspace
+    entrypoint: yarn run dev
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db

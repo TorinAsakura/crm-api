@@ -1,0 +1,18 @@
+type JwtToken {
+  email: String!
+  token: String!
+  expiresIn: Int!
+}
+
+type SigninErrors {
+  email: String
+}
+
+type SigninResponse {
+  token: JwtToken
+  errors: SigninErrors
+}
+
+type Query {
+  signin (email: String!, password: String!) : SigninResponse!
+}
